@@ -53,10 +53,18 @@ the choices it makes.
 
 ## Software
 
-Analyses were run in R on a SLURM cluster, using Seurat, DESeq2, gprofiler2 and
-CellChat, with ggplot2, patchwork and ComplexHeatmap for the figures.
+Analyses were run on a SLURM cluster under R 4.4.3, with:
 
-<!-- TODO: add the exact R and package versions from sessionInfo() -->
+| Package | Version |
+| --- | --- |
+| Seurat (SeuratObject 5.1.0) | 5.3.0 |
+| DESeq2 | 1.46.0 |
+| gprofiler2 | 0.2.4 |
+| CellChat | 2.2.0.9001 |
+
+Figures additionally use ggplot2, patchwork, ComplexHeatmap, grid and scales.
+
+Versions refer to the R environment in which these analyses were run.
 
 ## Contact
 
