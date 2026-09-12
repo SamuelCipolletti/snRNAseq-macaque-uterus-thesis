@@ -1,4 +1,4 @@
-# snRNA-seq of the Rhesus macaque uterus — downstream analysis scripts
+# snRNA-seq of the Rhesus macaque uterus: downstream analysis scripts
 
 Analysis scripts accompanying the master's thesis *Single-nucleus transcriptomics
 of the Rhesus macaque uterus: intrauterine infection and IL-1 blockade*
@@ -11,14 +11,14 @@ outcome.
 
 ## Scope of this repository
 
-This repository contains **only the downstream analyses that I carried out
-myself**: pseudobulk differential expression, functional enrichment, and
-cell-cell communication.
+This repository contains only the downstream analyses that I carried out myself:
+pseudobulk differential expression, functional enrichment, and cell-cell
+communication.
 
-The upstream part of the pipeline — Cell Ranger, quality control, doublet
-removal, normalisation, integration, clustering and cell-type annotation — was
-performed by other members of the project and is **not** included here. The
-scripts below start from the already annotated Seurat object.
+The upstream part of the pipeline (Cell Ranger, quality control, doublet
+removal, normalisation, integration, clustering and cell type annotation) was
+performed by other members of the project and is not included here. The scripts
+below start from the already annotated Seurat object.
 
 ## Scripts
 
@@ -35,21 +35,24 @@ the choices it makes.
 
 ## Notes for readers
 
-- **The data are not included.** The Seurat object and the sequencing data are
-  not part of this repository. The scripts are provided for inspection, to
-  document how the results in the thesis were produced.
-- **Paths are specific to the machine they ran on.** Input and output
-  directories are hard-coded near the top of each script and point to the HPC
-  cluster used for the analysis. They would need to be adapted before running
-  the scripts elsewhere.
-- **"GSEA" in file and variable names is a misnomer.** The analysis labelled
-  that way is an ordered-query enrichment with g:Profiler, not a classical gene
-  set enrichment analysis. The names were kept as they were when the analyses
-  were run, so that the files match the outputs; the thesis describes the method
-  correctly.
-- **The LPS group is not analysed in the thesis.** Some comparisons involving it
-  are still defined in the scripts, and their outputs were simply not used.
-- Comments inside the code are in Italian; the headers are in English.
+The data are not included. The Seurat object and the sequencing data are not
+part of this repository. The scripts are provided for inspection, to document
+how the results in the thesis were produced.
+
+Input and output directories are hard-coded near the top of each script and
+point to the HPC cluster used for the analysis. They would need to be adapted
+before running the scripts elsewhere.
+
+The label "GSEA" in file and variable names is a misnomer. The analysis named
+that way is an ordered-query enrichment with g:Profiler, not a classical gene
+set enrichment analysis. The names were kept as they were when the analyses were
+run, so that the files match the outputs. The thesis describes the method
+correctly.
+
+The LPS group is not analysed in the thesis. Some comparisons involving it are
+still defined in the scripts, and their outputs were not used.
+
+Comments inside the code are in Italian; the headers are in English.
 
 ## Software
 
@@ -63,9 +66,8 @@ Analyses were run on a SLURM cluster under R 4.4.3, with:
 | CellChat | 2.2.0.9001 |
 
 Figures additionally use ggplot2, patchwork, ComplexHeatmap, grid and scales.
-
 Versions refer to the R environment in which these analyses were run.
 
 ## Contact
 
-Samuel Evan Cipolletti — University of Parma.
+Samuel Evan Cipolletti, University of Parma.
