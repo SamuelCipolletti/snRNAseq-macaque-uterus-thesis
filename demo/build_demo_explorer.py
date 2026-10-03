@@ -1,28 +1,29 @@
 #!/usr/bin/env python3
 """
 build_demo_explorer.py
-======================
-Costruisce la versione DEMO dello snRNA-seq DEG Explorer, pubblicabile online e
-raggiungibile dalla tesi tramite QR code. I dati sono interamente SIMULATI:
-nessun valore deriva dallo studio.
-
-Cosa fa:
-  1. genera un dataset sintetico con la stessa struttura di cartelle e file
-     letta da generate_html.py (DE_*.csv, vst/coldata, Enrichment GO/GSEA,
-     umap_data.tsv, dotplot_data_res05.csv, top_marker_ranks.csv, cell_counts.csv);
-  2. esegue generate_html.py SENZA modificarlo, su una copia in una cartella di
-     build isolata (cosi' non sovrascrive la cache dati reale e non pesca per
-     sbaglio umap_data.tsv o i file marker reali messi accanto allo script);
-  3. aggiunge all'HTML risultante un banner "dati simulati", il tag noindex e
-     un foglio di stile per smartphone;
-  4. genera il QR code (PNG e SVG) che punta all'URL pubblico della demo.
-
-Uso:
-    python3 build_demo_explorer.py <path/generate_html.py> [URL_pubblico]
-
-Output (cartella ./demo_build):
-    index.html          -> da pubblicare (es. GitHub Pages, cartella demo/)
-    qr_demo_explorer.png / .svg
+ 
+Builds a demo version of the snRNA-seq DEG explorer from a simulated dataset.
+All values are randomly generated (fixed seed, 2026) and none comes from the
+thesis data.
+ 
+The script writes a synthetic dataset with the folder layout expected by
+generate_html.py: DESeq2-style DE tables, VST matrices with sample metadata,
+GO over-representation and GSEA tables, UMAP coordinates, marker dotplot data
+and nuclei counts. Gene symbols are real human symbols; their statistics are
+random. Cell types (13 generic clusters), conditions (Control and three
+treatments, 4 samples each) and comparisons (C1-C6) are generic.
+ 
+generate_html.py is run on a copy in demo_build/_gen, with cell type,
+comparison and subtitle labels replaced. The resulting HTML gets a "simulated
+data" banner, a noindex tag and a mobile layout, and a QR code pointing to
+the public URL is generated.
+ 
+Usage:
+    python build_demo_explorer.py <path/to/generate_html.py> [public_URL]
+ 
+Output (demo_build/):
+    index.html                    demo page to publish
+    qr_demo_explorer.png / .svg   QR code linking to the public URL
 """
 
 import os
